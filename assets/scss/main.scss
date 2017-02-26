@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+
+html, body {
+	height: 100%;
+	font-family: "Open Sans", sans-serif;
+	padding: 0; margin: 0;
+}
+
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+body {
+	position: relative;
+}
+
+
+section.navigation {
+	display: flex;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	color: #999;
+	background: #FFF;
+	border-bottom: 1px solid #777;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	z-index: 999;
+	
+	.search {
+		flex-grow: 1;
+		
+		.input-icon {
+			position: absolute;
+			width: 45px;
+			text-align: center;
+			line-height: inherit;
+		}
+		
+		input {
+			width: 100%;
+			padding-left: 50px;
+			border: 0;
+			font-size: inherit;
+			background: inherit;
+			
+			&:focus, &:hover, &:active {
+				outline: 0;
+			}
+			
+			&:focus {
+				border-color: #4183D7;
+			}
+			
+			&:-webkit-autofill {
+				-webkit-box-shadow: 0 0 0px 1000px white inset;
+			}
+		}
+	}
+	
+	.nav {
+		position: relative;
+		flex-shrink: 0;
+		
+		.hamburger {
+			display: inline-block;
+			text-align: center;
+			width: 50px;
+			background: #FFF;
+			border-left: 1px solid #777;
+			color: inherit;
+			font-size: inherit;
+		}
+	}
+	
+	.side-nav {
+		position: fixed;
+		z-index: 9999;
+		height: 100%;
+		width: 300px;
+		right: 0;
+		margin-right: -300px;
+		overflow: auto;
+		background: #FFF;
+		border-left: 1px solid #777;
+		transition: margin-right 0.65s ease;
+		
+		a#close {
+			display: block;
+			line-height: normal;
+			position: absolute;
+			top: 0;
+			right: 15px;
+			text-decoration: none;
+			color: inherit;
+			font-size: 35px;
+		}
+		
+		.side-nav-content {
+			margin-top: 50px;
+			font-size: 16px;
+			
+			ul {
+				padding: 0; margin: 0;
+				
+				li {
+					
+					&:first-child {
+						border-top: 1px solid #777;
+					}
+	
+					a {
+						padding: 0 10px;
+						text-decoration: none;
+						color: inherit;
+						display: block;
+						border-bottom: 1px solid #777;
+						
+						&.active {
+							color: #111;
+							font-weight: 600;
+							background: #EEE;
+						}
+						
+						&:hover {
+							background: #F9F9F9;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.map {
+	height: calc(100% - 51px);
+}
