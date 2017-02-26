@@ -15,16 +15,23 @@ window.onload = function () {
 	var map;
 	var src = "normal";
 
+	var marker;
 	function initMap() {
+		var position = {
+			coords: {
+				latitude: 34.746958,
+				longitude: -86.581305
+			}
+		};
 		map = new google.maps.Map(document.getElementById('map'), {
-			center: new google.maps.LatLng(34.737394, -86.590026),
+			center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
 			zoom: 9,
-			styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#BBBBBB"}]},
-        {"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#141014"}]},
-         {"featureType":"poi","elementType":"geometry","stylers":[{"color":"#321343"}]},
-        {"featureType":"road","elementType":"geometry","stylers":[{"saturation":-100},{"lightness":45}]},
-        {"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"simplified"}]},
-        {"featureType":"water","elementType":"geometry","stylers":[{"color":"#812C0A"},{"visibility":"on"}]}]
+			styles: [{"featureType":"landscape.man_made","elementType":"all","stylers":[{"color":"#faf5ed"},{"lightness":"0"},{"gamma":"1"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#bae5a6"}]},{"featureType":"road","elementType":"all","stylers":[{"weight":"1.00"},{"gamma":"1.8"},{"saturation":"0"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ffb200"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"lightness":"0"},{"gamma":"1"}]},{"featureType":"transit.station.airport","elementType":"all","stylers":[{"hue":"#b000ff"},{"saturation":"23"},{"lightness":"-4"},{"gamma":"0.80"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#a0daf2"}]}]
+		});
+		
+		marker = new google.maps.Marker({
+			map: map,
+			position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
 		});
 	}
 
@@ -37,7 +44,6 @@ window.onload = function () {
 		});
 	}
 
-	var marker;
 	$("#searchForm").submit(function (e) {
 		var search = $("#searchInput").val();
 		console.log(search);
